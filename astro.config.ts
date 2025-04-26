@@ -105,7 +105,12 @@ export default defineConfig({
 	prefetch: true,
 	vite: {
 		optimizeDeps: {
-			exclude: ["@resvg/resvg-js","sharp"],
+			exclude: [
+				"@resvg/resvg-js",
+				"sharp",
+				"@astrojs/image",
+				"image-size",
+			],
 		},
 		plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
 	},

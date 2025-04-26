@@ -1,2 +1,6 @@
 [build]
-  command = 'pnpm build'
+  command = "pnpm build"
+[build.environment]
+  SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
+  NODE_OPTIONS = "--max-old-space-size=4096"
+  VITE_DISABLE_OPTIMIZATION = "true"
