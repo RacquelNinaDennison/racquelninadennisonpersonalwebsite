@@ -26,6 +26,9 @@ export default defineConfig({
 	site: siteConfig.url,
 	image: {
 		domains: ["webmention.io"],
+		service: {
+			entrypoint: "astro/assets/services/static", // ✅ Use static passthrough instead of trying to optimize
+		},
 	},
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
@@ -71,7 +74,13 @@ export default defineConfig({
 	markdown: {
 		rehypePlugins: [
 			rehypeHeadingIds,
-			[rehypeAutolinkHeadings, { behavior: "wrap", properties: { className: ["not-prose"] } }],
+			[
+				rehypeAutolinkHeadings,
+				{
+					behavior: "wrap",
+					properties: { className: ["not-prose"] },
+				},
+			],
 			[
 				rehypeExternalLinks,
 				{
@@ -81,7 +90,11 @@ export default defineConfig({
 			],
 			rehypeUnwrapImages,
 		],
-		remarkPlugins: [remarkReadingTime, remarkDirective, remarkAdmonitions],
+		remarkPlugins: [
+			remarkReadingTime,
+			remarkDirective,
+			remarkAdmonitions,
+		],
 		remarkRehype: {
 			footnoteLabelProperties: {
 				className: [""],
@@ -98,9 +111,21 @@ export default defineConfig({
 	},
 	env: {
 		schema: {
-			WEBMENTION_API_KEY: envField.string({ context: "server", access: "secret", optional: true }),
-			WEBMENTION_URL: envField.string({ context: "client", access: "public", optional: true }),
-			WEBMENTION_PINGBACK: envField.string({ context: "client", access: "public", optional: true }),
+			WEBMENTION_API_KEY: envField.string({
+				context: "server",
+				access: "secret",
+				optional: true,
+			}),
+			WEBMENTION_URL: envField.string({
+				context: "client",
+				access: "public",
+				optional: true,
+			}),
+			WEBMENTION_PINGBACK: envField.string({
+				context: "client",
+				access: "public",
+				optional: true,
+			}),
 		},
 	},
 });
