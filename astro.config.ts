@@ -27,7 +27,7 @@ export default defineConfig({
 	image: {
 		domains: ["webmention.io"],
 		service: {
-			entrypoint: "astro/assets/services/static", // ✅ Use static passthrough instead of trying to optimize
+			entrypoint: "astro/assets/services/noop",
 		},
 	},
 	integrations: [
