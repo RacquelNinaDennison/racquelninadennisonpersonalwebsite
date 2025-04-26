@@ -1,0 +1,36 @@
+---
+import FormattedDate from "@/components/FormattedDate.astro";
+
+const papers = [
+	{
+		title: "Defeasible Conditionals using Answer Set Programming",
+		date: "2024-10-01",
+		description: "As apart of my honours project, I looked at implementing rational closure using Answer Set Programming.",
+		link: "/public/DefeasibleConditionals.pdf",
+		draft: false,
+	},
+];
+---
+
+<div class="space-y-8">
+	{papers.map((paper) => (
+		<div class="flex flex-col gap-1" key={paper.title}>
+			<FormattedDate
+				class="min-w-30 font-semibold text-gray-600 dark:text-gray-400"
+				date={new Date(paper.date)} 
+			/>
+			<div>
+				{paper.draft && <span class="text-red-500">(Draft) </span>}
+				<a
+					class="cactus-link"
+					href={paper.link}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					{paper.title}
+				</a>
+			</div>
+			<q class="line-clamp-3 italic">{paper.description}</q>
+		</div>
+	))}
+</div>

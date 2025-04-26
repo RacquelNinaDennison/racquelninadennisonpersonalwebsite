@@ -1,0 +1,49 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "About me :)",
+	title: "About",
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<h2>A little more about me...</h2>
+		<p>	
+			Besides my interests in logic programming and knowledge representation and reasoning, I also enjoy software engineering. 
+			For sometime, I have tinkled with some projects using the Unity game engine. Besides programming, I enjoy reading books :), mostly 
+			fantasy and scifi books. 
+		</p>
+		<h2>Education</h2>
+		<ul class="list-none space-y-4">
+			<li>
+				<strong>BSc in Computer Science and Pure Mathematics, 2021–2023 (UCT)</strong><br />
+				<span>Completed with distinction in both Computer Science and Pure Mathematics, as well as an overall degree distinction.</span>
+			</li>
+			<li>
+				<strong>Honours in Computer Science, 2024 (UCT)</strong><br />
+				<span>Graduated with first-class honours.</span>
+			</li>
+			<li>
+				<strong>Masters by Dissertation in Computer Science, 2025 (UCT)</strong><br />
+				<span>My research topic focuses on the origin of Logic programming, specifically ASP. Furthermore, I am looking at 
+					Aircraft configuration with ASP. 
+				</span>
+			</li>
+		</ul>
+
+		<h2>Teaching Experience</h2>
+		<ul class="list-none space-y-4">
+			<li>
+				<strong>3rd year Computer Science tutor, 2024 (UCT)</strong><br />
+				<span>Topics included, Networks and Operating Systems. </span>
+			</li>
+			<li>
+				<strong>Teaching Assitant for Computer Honours, 2025 (UCT)</strong><br />
+				<span>Responsibilities include marking and scheduling of students tests</span>
+			</li>
+		</ul>
+
+	</div>
+</PageLayout>

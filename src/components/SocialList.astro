@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+
+const socialLinks: {
+	friendlyName: string;
+	isWebmention?: boolean;
+	link: string;
+	name: string;
+}[] = [
+	{
+		friendlyName: "GitHub",
+		link: "https://github.com/RacquelNinaDennison",
+		name: "mdi:github",
+	},
+	{
+		friendlyName: "Email",
+		link: "mailto:dnnrac003@myuct.ac.za",
+		name: "mdi:email",
+	},
+];
+---
+
+<div class="flex flex-wrap items-end gap-x-2">
+	<p>Find me on</p>
+	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
+		{
+			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (
+				<li class="flex" key={friendlyName}>
+					<a
+						class="hover:text-link inline-block"
+						href={link}
+						rel={`noreferrer ${isWebmention ? "me authn" : ""}`}
+						target="_blank"
+					>
+						<Icon aria-hidden="true" class="h-8 w-8" focusable="false" name={name} />
+						<span class="sr-only">{friendlyName}</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>
