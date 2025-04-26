@@ -105,7 +105,7 @@ export default defineConfig({
 	prefetch: true,
 	vite: {
 		optimizeDeps: {
-			exclude: ["@resvg/resvg-js"],
+			exclude: ["@resvg/resvg-js","sharp"],
 		},
 		plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
 	},
