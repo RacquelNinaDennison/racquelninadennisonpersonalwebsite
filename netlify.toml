@@ -1,6 +1,8 @@
 [build]
-  command = "pnpm build"
+  command = "DISABLE_OG_IMAGE=true SKIP_IMAGE_OPTIMIZATION=true NODE_OPTIONS='--max-old-space-size=4096' pnpm build"
+  publish = "dist"
+
 [build.environment]
   SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
-  NODE_OPTIONS = "--max-old-space-size=4096"
-  VITE_DISABLE_OPTIMIZATION = "true"
+  DISABLE_OG_IMAGE = "true"
+  SKIP_IMAGE_OPTIMIZATION = "true"
